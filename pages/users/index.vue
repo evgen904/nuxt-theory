@@ -2,8 +2,8 @@
   <section>
     <h1>Users page</h1>
     
-    <ul v-for="user in users" :key="item">
-      <li>
+    <ul>
+      <li v-for="user in users" :key="user">
         <a href="#" @click="goTo(user)">User {{ user }}</a>
       </li>
     </ul>

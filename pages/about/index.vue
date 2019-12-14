@@ -1,0 +1,7 @@
+<template>
+  <section>
+    <h1>
+      about page
+    </h1>
+  </section>
+</template>

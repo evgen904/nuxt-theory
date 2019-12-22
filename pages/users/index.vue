@@ -21,15 +21,15 @@ export default {
   //     error(e)
   //   }    
   // },
-  async fetch({store, error}) {
-    try {
-      if (store.dispatch('users/fetchUsers').length === 0) {
-        await store.dispatch('users/fetchUsers')
-      }      
-    } catch(e) {
-      error(e)
-    }
-  },
+  // async fetch({store, error}) {
+  //   try {
+  //     if (store.dispatch('users/fetchUsers').length === 0) {
+  //       await store.dispatch('users/fetchUsers')
+  //     }      
+  //   } catch(e) {
+  //     error(e)
+  //   }
+  // },
   data: () => ({
     pageTitle: 'Users page'
   }),

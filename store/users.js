@@ -1,11 +1,32 @@
+export const state = () => ({
+  users: []
+})
+
+export const mutations = {
+  setUsers(state, users) {
+    state.users = users
+  }
+}
+
 export const actions = {
   // async если метод асинхронный
-  async fetchUsers() {
+  async fetchUsers({commit}) {
     try {
       const users = await this.$axios.$get('https://jsonplaceholder.typicode.com/users')
-      return users
+      commit('setUsers', users)
     } catch (e) {
       throw e
     }    
+  },
+  async fetchUserById({}, userId) {
+    try {
+      return this.$axios.$get(`https://jsonplaceholder.typicode.com/users/${userId}`)
+    } catch (e) {
+      throw e
+    }       
   }
+}
+
+export const getters = {
+  users: state => state.users
 }

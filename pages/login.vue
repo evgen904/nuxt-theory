@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent="onSubmit">
     <h1>
       Login
     </h1>
@@ -18,14 +18,20 @@
     
 
     <div class="form-group">
-      <button class="btn btn-primary">Login</button>
+      <button class="btn btn-primary" type="submit">Login</button>
     </div>
   </form>
 </template>
 
 <script>
 export default {
-  layout: "empty"
+  layout: "empty",
+  methods: {
+    onSubmit() {
+      this.$store.dispatch('login')
+      this.$router.push('/')
+    }
+  }
 }
 </script>
 

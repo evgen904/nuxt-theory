@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>Users page</h1>
+    <h1>{{ pageTitle }}</h1>
     
     <ul>
       <li v-for="user in users" :key="user">
@@ -12,10 +12,20 @@
 
 <script>
 export default {
+  // asyncData вызывается только на серверной части, отобразится до того как приложение загрузится
+  asyncData() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve({
+          users: [
+            1, 2, 3, 4, 5 
+          ]
+        })
+      }, 3000)
+    })
+  },
   data: () => ({
-    users: [
-      1, 2, 3, 4, 5 
-    ]
+    pageTitle: 'Users page'
   }),
   methods: {
     goTo(user) {
